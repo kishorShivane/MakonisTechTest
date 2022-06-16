@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MakonisTechTest.Data.Data
+namespace MakonisTechTest.Data
 {
-    /// <summary>
-    /// Example class which can be used to read and write the data from SQL database
-    /// </summary>
-    public class SQLData : DefaultDataContract
+    public class XmlFileData : DefaultDataContract
     {
-        public SQLData()
+        public XmlFileData()
         {
 
         }

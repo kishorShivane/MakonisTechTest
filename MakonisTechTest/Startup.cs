@@ -3,14 +3,9 @@ using MakonisTechTest.Data;
 using MakonisTechTest.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MakonisTechTest
 {
@@ -27,7 +22,16 @@ namespace MakonisTechTest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOptions<AppSettingsReader>().Bind(Configuration.GetSection(AppSettingsReader.FileLocation));
+            
+            //For json file as a data store
             services.AddSingleton<IDataContact, JSonFileData>();
+
+            //For xml file as a data store 
+            //services.AddSingleton<IDataContact, XmlFileData>();
+
+            //For SQL as a data store
+            //services.AddSingleton<IDataContact, SQLData>();
+
             services.AddScoped<IPersonService, PersonService>();
             services.AddControllersWithViews();
         }
